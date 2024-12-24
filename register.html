@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #d3e8ff, #b4d8f1, #a1c6ff);
+            padding: 20px;
+            transition: background 0.3s ease;
+        }
+
+        h1 {
+            color: #2a62a2;
+            margin-bottom: 20px;
+            font-size: 2.8rem;
+            text-align: center;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+        }
+
+        .error-message {
+            color: #e57373;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 12px 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        form:hover {
+            transform: scale(1.05);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #1e3a63;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 24px;
+            border: 2px solid #a3c6e6;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            background-color: #f5faff;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4d9fcf;
+            box-shadow: 0 0 8px rgba(77, 159, 207, 0.6);
+            background-color: #ffffff;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #4d9fcf;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #357abd;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 480px) {
+            form {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration Page</h1>
+    <div id="errorMessage" class="error-message" style="display: none;">Wrong username or password!</div>
+    <form id="registrationForm" action="#" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Register</button>
+    </form>
+    <script>
+        // Autofill username and password fields with default values
+        document.addEventListener("DOMContentLoaded", () => {
+            const usernameField = document.getElementById("username");
+            const passwordField = document.getElementById("password");
+
+            usernameField.value = "abc";
+            passwordField.value = "123";
+        });
+
+        // Show popup on form submission and validate credentials
+        document.getElementById("registrationForm").addEventListener("submit", (e) => {
+            e.preventDefault(); // Prevent actual form submission
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("errorMessage");
+
+            // Validate the credentials
+            if (username === "abc" && password === "123") {
+                alert("Registration Successful!");
+                errorMessage.style.display = "none"; // Hide error message if credentials are correct
+            } else {
+                errorMessage.style.display = "block"; // Show error message if credentials are incorrect
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
